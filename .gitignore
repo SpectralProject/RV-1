@@ -1,0 +1,15 @@
+# SCALA
+project
+target
+null
+generated
+
+# IDE
+.bsp
+.metals
+.vscode
+.idea
+
+# MISC, archives, temp data
+temp/
+archive/
