@@ -46,13 +46,17 @@ class ALU(width: Int) extends Module {
     }
   }
 
-  println("In build")
+  println("===In build===")
   println("op = ", op)
   println("x = ", x)
   println("y = ", y)
   println("r = ", r)
 
-  printf("In simulation")
+  printf("===In simulation===\n")
+  printf(p"op = $op\n")
+  printf(p"x = $x\n")
+  printf(p"y = $y\n")
+  printf(p"r = $r\n")
 
   io.res := r
 }

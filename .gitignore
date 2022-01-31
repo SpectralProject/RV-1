@@ -13,3 +13,4 @@ generated
 # MISC, archives, temp data
 temp/
 archive/
+test_run_dir/

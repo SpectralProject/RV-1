@@ -3,17 +3,26 @@ import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
 import cpu.{ALU, ALUOps}
+import cpu.{CPUCore}
 
 class BasicTest extends AnyFlatSpec with ChiselScalatestTester {
   // test class body here
-
-  test(new ALU(64)) { a =>
-    a.io.op.poke(ALUOps.add)
-    a.io.x.poke(1.S(64.W))
-    a.io.y.poke(1.S(64.W))
-    a.clock.step(1)
-    a.io.res.expect(2.S(64.W))
-
-    printf("printing during testing")
+  behavior of "CPUCore"
+  it should "Initialise" in {
+    test(new CPUCore) { c => }
   }
+
+  behavior of "ALU"
+  it should "Do basic arithmetic" in {
+    test(new ALU(64)) { a =>
+      a.io.op.poke(ALUOps.add)
+      a.io.x.poke(1.S)
+      a.io.y.poke(1.S)
+      a.clock.step(1)
+      a.io.res.expect(2.S)
+
+      printf("printing during testing")
+    }
+  }
+
 }
