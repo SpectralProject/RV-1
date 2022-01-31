@@ -22,7 +22,7 @@ class ALU(width: Int) extends Module {
   val y = io.y
   val op = io.op
 
-  switch(io.op) {
+  switch(op) {
     is(ALUOps.add) {
       r := x + y
     }
@@ -46,15 +46,13 @@ class ALU(width: Int) extends Module {
     }
   }
 
-  val k = 5.S(width.W)
-
+  println("In build")
   println("op = ", op)
   println("x = ", x)
   println("y = ", y)
   println("r = ", r)
-  println("k = ", k)
 
-  printf(" hi ")
+  printf("In simulation")
 
   io.res := r
 }
