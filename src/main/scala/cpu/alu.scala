@@ -26,6 +26,24 @@ class ALU(width: Int) extends Module {
     is(ALUOps.add) {
       r := x + y
     }
+    is(ALUOps.sub) {
+      r := x - y
+    }
+    is(ALUOps.and) {
+      r := x & y
+    }
+    is(ALUOps.xor) {
+      r := x ^ y
+    }
+    is(ALUOps.or) {
+      r := x | y
+    }
+    is(ALUOps.load) {
+      r := y
+    }
+    is(ALUOps.shr) {
+      r := (x >> 1) & 0x7fffffff.S
+    }
   }
 
   io.res := r

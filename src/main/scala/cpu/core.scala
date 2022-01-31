@@ -24,13 +24,17 @@ class CPUCore extends Module {
   // ALUs
   val x = WireDefault(1.S(64.W))
   val y = WireDefault(1.S(64.W))
+  val res = WireDefault(1.S(64.W))
 
   val alu = Module(new ALU(64))
   // initialise ALU inputs
   alu.io.op := ALUOps.add
   alu.io.x := x
   alu.io.y := y
+  res := alu.io.res
 
+  printf(p"res = $res")
+  // println(p"res = $res")
 
   // FPU
   val a = Wire(new Float32)
