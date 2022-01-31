@@ -46,5 +46,15 @@ class ALU(width: Int) extends Module {
     }
   }
 
+  val k = 5.S(width.W)
+
+  println("op = ", op)
+  println("x = ", x)
+  println("y = ", y)
+  println("r = ", r)
+  println("k = ", k)
+
+  printf(" hi ")
+
   io.res := r
 }

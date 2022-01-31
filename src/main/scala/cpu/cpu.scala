@@ -22,6 +22,6 @@ class CPU extends Module {
 
   // Apparently a prefetch instruction if you can lookahead in the code (PC) to see what instructions and data are needed
   // then can prefetch and cache a future pointer or value
-  val core = Module(new CPUCore())
+  val core = Module(new CPUCore)
 
 }
