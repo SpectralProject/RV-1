@@ -60,3 +60,43 @@ class ALU(width: Int) extends Module {
 
   io.res := r
 }
+
+class ALU64 extends Module {
+  val io = IO(new Bundle {
+    val op = Input(UInt(3.W))
+    val x = Input(SInt(64.W))
+    val y = Input(SInt(64.W))
+    val res = Output(SInt(64.W))
+  })
+
+  val r = WireDefault(0.S(64.W))
+  val x = io.x
+  val y = io.y
+  val op = io.op
+
+  switch(op) {
+    is(ALUOps.add) {
+      r := x + y
+    }
+    is(ALUOps.sub) {
+      r := x - y
+    }
+    is(ALUOps.and) {
+      r := x & y
+    }
+    is(ALUOps.xor) {
+      r := x ^ y
+    }
+    is(ALUOps.or) {
+      r := x | y
+    }
+    is(ALUOps.load) {
+      r := y
+    }
+    is(ALUOps.shr) {
+      r := (x >> 1) & 0x7fffffff.S
+    }
+  }
+
+  io.res := r
+}
