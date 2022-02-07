@@ -2,7 +2,7 @@ package cpu
 
 import chisel3._
 
-import cpu.{ALU, ALUOps}
+import cpu.{ALU, ALU64, ALUOps}
 import fpu.{Float32, FPU, FPUOps}
 
 // A CPU Core
