@@ -17,7 +17,8 @@ class ALU(width: Int) extends Module {
     val res = Output(SInt(width.W))
   })
 
-  val r = WireDefault(0.S(width.W))
+  val r = Wire(SInt(width.W))
+  r := 0.S
   val x = io.x
   val y = io.y
   val op = io.op
