@@ -33,8 +33,7 @@ class GPUCluster(n: Int) extends Module {
   val sm_list = VecInit.fill(n) { Module(new SM(30)).io }
 
   for (i <- 0 until n) {
-    val idx = Wire(UInt())
-    sm_list(idx).op := 2.U(3.W)
+    sm_list(i).op := 2.U(3.W)
   }
 
   // how to index
