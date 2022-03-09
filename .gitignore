@@ -3,6 +3,7 @@ project
 target
 null
 generated
+.bloop
 
 # IDE
 .bsp
