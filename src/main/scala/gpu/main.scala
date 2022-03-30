@@ -9,7 +9,6 @@ class INT32Unit extends Module {}
 class FP32Unit extends Module {}
 
 // ! just hardcode the stuff in
-
 class StreamingCore() extends Module {
   // needs int32 and fp32 (GPU specific ISA that kinda looks like riscv32imf)
   val fp32_unit = Module(new FP32Unit)

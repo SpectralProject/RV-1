@@ -1,17 +1,33 @@
 package cpu
 
 import chisel3._
+import chisel3.util._
+import chisel3.experimental._
+import chisel3.experimental.BundleLiterals._
 
 import cpu.{ALU, ALU64, ALUOps}
 import fpu.{Float32, FPU, FPUOps}
 
+// mostly just for storage
+class RegisterFile(number: Int, width: Int) extends Module {
+  val io = IO(new Bundle {
+    val registers = VecInit.fill(number) { Input(UInt(width.W)) }
+  })
+}
+
+class CoreInstructionDecode extends Module {}
+
 // A CPU Core
-// FPU Out line to RAM, ALU Out line to RAM
-// Clock is implict so can keep updating the inputs each clock and pass to ALU, FPU, decoder, etc.
-// RISC PIPELINE -> fetch, decode, execute, access, writeback
 class CPUCore extends Module {
   // IO
   val io = IO(new Bundle {})
+
+  // Initialise stuff
+  val registers = Module(new RegisterFile(31, 64))
+
+  for (i <- 31 until 64) {
+    registers.io.registers(i) := 0.U(64.W)
+  }
 
   // Check any pending writebacks to RAM. Differences between L2 and L1 cache
 
