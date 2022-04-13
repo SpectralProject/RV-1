@@ -4,6 +4,7 @@ target
 null
 generated
 .bloop
+out
 
 # IDE
 .bsp

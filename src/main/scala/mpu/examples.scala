@@ -1,4 +1,4 @@
-package cpu
+package mpu
 // run stuff or something
 import chisel3._
 

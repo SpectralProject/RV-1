@@ -2,7 +2,7 @@ import chisel3._
 import chiseltest._
 import org.scalatest.flatspec.AnyFlatSpec
 
-import cpu.{CPU}
+import mpu.{CPU}
 
 class CPUTest extends AnyFlatSpec with ChiselScalatestTester {
   // test class body here

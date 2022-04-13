@@ -1,8 +1,8 @@
-package cpu
+package mpu
 
 import chisel3._
 
-import cpu.{ALU, ALUOps, CPUCore}
+import mpu.{ALU, ALUOps, CPUCore}
 import fpu.{Float32, FPU, FPUOps}
 
 // The Entire CPU

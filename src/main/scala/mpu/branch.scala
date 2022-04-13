@@ -1,6 +1,6 @@
 // branch unit, not branch predictor
 
-package cpu
+package mpu
 
 import chisel3._
 

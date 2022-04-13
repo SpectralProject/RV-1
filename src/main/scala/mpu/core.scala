@@ -1,11 +1,11 @@
-package cpu
+package mpu
 
 import chisel3._
 import chisel3.util._
 import chisel3.experimental._
 import chisel3.experimental.BundleLiterals._
 
-import cpu.{ALU, ALU64, ALUOps}
+import mpu.{ALU, ALU64, ALUOps}
 import fpu.{Float32, FPU, FPUOps}
 
 // mostly just for storage
