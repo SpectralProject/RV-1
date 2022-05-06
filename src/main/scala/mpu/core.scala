@@ -15,6 +15,21 @@ class RegisterFile(number: Int, width: Int) extends Module {
   })
 }
 
+// all the instructions
+// idk if we can just compare it directly like this, but i dont see why
+// maybe its less efficient when you implement it
+object RV32I_Instruction extends ChiselEnum {
+    val load  = Value(0x03.U)
+    val imm   = Value(0x13.U)
+    val auipc = Value(0x17.U)
+    val store = Value(0x23.U)
+    val reg   = Value(0x33.U)
+    val lui   = Value(0x37.U)
+    val br    = Value(0x63.U)
+    val jalr  = Value(0x67.U)
+    val jal   = Value(0x6F.U)
+}
+
 class CoreInstructionDecode extends Module {}
 
 // A CPU Core

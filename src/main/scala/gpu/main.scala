@@ -59,6 +59,21 @@ class GPU extends Module {
 
 }
 
+class RTCore extends Module {
+  // FP12 calculations on normalised verts, a clip space at a time
+  // up to an accuracy of 7 decimal places
+}
+
+class ThreadBlock {
+  // N RT Cores per thread block in a grid like manner
+  // grid topology is very cool
+}
+
+class RTU extends Module {
+  val io = IO(new Bundle{})
+  // includes thread blocks of RT cores in a grid topology
+}
+
 object Main extends App {
   println("Creating a new GPU Core...")
 
