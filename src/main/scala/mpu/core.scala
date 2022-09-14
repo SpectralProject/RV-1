@@ -6,7 +6,7 @@ import chisel3.experimental._
 import chisel3.experimental.BundleLiterals._
 
 import mpu.{ALU, ALU64, ALUOps}
-import fpu.{Float32, FPU, FPUOps}
+import mpu.{Float32, FPU, FPUOps}
 
 // mostly just for storage
 class RegisterFile(number: Int, width: Int) extends Module {

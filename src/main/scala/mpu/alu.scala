@@ -101,3 +101,43 @@ class ALU64 extends Module {
 
   io.res := r
 }
+
+// ------------
+// FPU
+// ------------
+
+class Float32 extends Bundle {
+  val sign = Bool()
+  val exponent = UInt(8.W)
+  val significand = UInt(23.W)
+}
+
+// fp16, for fast calcs. More appropriate for GPU
+class Float16 extends Bundle {
+  val sign = Bool()
+  val exponent = UInt(5.W)
+  val significand = UInt(10.W)
+}
+
+object FPUOps extends ChiselEnum {
+  val nop, add, sub, mult, div, nil = Value
+}
+
+// size, usually 16, 32, 64. Default FP32, FP64 not required and FP16 is good but performance increase isnt worth precision and range decrease
+// maybe in some time fp64 would make sense as a default for a FPU
+class FPU(width: Int) extends Module {
+  val io = IO(new Bundle {
+    val op = Input(FPUOps())
+    val x = Input(new Float32)
+    val y = Input(new Float32)
+    val res = Output(new Float32)
+  })
+
+  // add, sub, mult, divide
+  val r = Wire(new Float32)
+  r.sign := false.B
+  r.exponent := 10.U(8.W)
+  r.significand := 50.U(23.W)
+
+  io.res := r
+}

@@ -23,3 +23,9 @@ class uOpCache extends Module {
     val cache = VecInit.fill(200) { Input(UInt(64.W)) }
   })
 }
+
+class InstructionCache(entries: Int, width: Int) extends Module {
+  val io = IO(new Bundle {
+    val cache = VecInit.fill(entries) { Input(UInt(width.W)) }
+  })
+}
